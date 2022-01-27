@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:gigya_flutter_plugin/gigya_flutter_plugin.dart';
 import 'package:gigya_flutter_plugin/models/gigya_models.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class HomePageWidget extends StatefulWidget {
   @override
@@ -72,14 +73,29 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Center(
-                  child: Text(
-                    'Welcome',
-                    style: TextStyle(
-                      fontSize: 25.0,
-                      fontWeight: FontWeight.bold,
+                Stack(
+                  children: <Widget>[
+                    CachedNetworkImage(imageUrl: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/e2740e4b-67b5-4fb7-8971-1ad83c7cb6b2/de3gn5h-804df0a9-2de1-45ee-ae86-48f940a28eb9.png"),
+                    Positioned.fill(
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Container(
+                          padding: EdgeInsets.only(right: 10, left: 10.0, top: 3.0, bottom: 3.0),
+                          decoration: BoxDecoration(
+                            color: Colors.blue,
+                          ),
+                          child: Text(
+                            'Welcome',
+                            style: TextStyle(
+                              fontSize: 25.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
-                  )
+                  ],
                 ),
                 loggedIn
                   ? Padding(
